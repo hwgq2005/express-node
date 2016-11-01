@@ -12,7 +12,7 @@
   </head>
   <body >
    
-   	<%- include('header', {page: 'index'}); %>
+   	<%- include('common/header', {page: 'index'}); %>
   
 	
     <div class="container">
@@ -208,7 +208,7 @@ collection.count({}, function(err, count){...} )
 	    
    </div>
 
-   <%- include('footer'); %>
+   <%- include('common/footer'); %>
 	<script src="js/plugins/jquery.min.js"></script>
 	<script src="js/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<script src="js/plugins/docs/js/docs.min.js"></script>
