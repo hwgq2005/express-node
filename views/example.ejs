@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title><%= title %> </title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+    <link rel='stylesheet' href='components/bootstrap/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='components/docs/css/docs.min.css' />
+    <style>
+        .acticle-box:nth-child(1){
+          margin: 30px 0 20px;
+        }
+        .acticle-box{
+          margin: 40px 0 20px;
+          border: 1px solid #eee;
+          border-radius:4px;
+          padding: 0 20px 20px;
+          word-wrap:break-word;
+          word-break:break-all;
+        }
+    </style>
+  </head>
+  <body>
+   
+   <!--  <% include include.ejs %> -->
+
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">MongoDB</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li ><a href="/">首页</a></li>
+        
+          <li class="active"><a href="/example">实例</a></li>
+        </ul>
+         
+      </div><!-- /.nav-collapse -->
+    </div><!-- /.container -->
+  </nav><!-- /.navbar -->
+
+  
+    <div class="container">
+          <p class="pull-right">  <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addActicle">新增文章</a></p>
+          <div class="clearfix"></div>
+          <div id="acticle">
+              <% if(data !=''){ %>
+                  <% data.forEach(function( val,index ){ %>
+                  <div class="acticle-box">
+                          <h4 ><%= val.title %></h4>
+                          <p><%= val.content %></p>
+                          <div class="pull-right "><span style="margin-right:10px"><%= val.time %></span>
+                           <div class="btn-group">
+                              <a href="#" class="btn btn-success btn-xs">全文</a>
+                              <a href="#" class="btn btn-primary btn-xs" data-href="/example/hwg/acticle/update/<%= val._id %>" data-action="edit">编辑</a>
+                              <a href="javascript:;" data-href="/example/hwg/acticle/delete/<%= val._id %>" class="btn btn-danger btn-xs" data-action="del">删除</a>
+                            </div>
+                          </div>
+                          <div class="clearfix"></div>
+                  </div>
+                  <% }); %>
+              <%}else{ %>
+                  暂无数据 
+              <% } %>
+           </div>
+          <footer class="bs-docs-footer" style="margin-top:50px;">
+            <div class="container">
+             <p>&copy; H君 2015</p>
+            </div>
+          </footer>
+    </div>
+    <!-- addData -->
+    <div class="modal fade" id="addActicle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">新增文章</h4>
+          </div>
+          <form method="post" action="/example/hwg/acticle/insert">
+              <div class="modal-body">
+                    <div class="form-group">
+                      <label >标题</label>
+                      <input type="text" class="form-control" placeholder="标题" name="title">
+                    </div>
+                    <div class="form-group">
+                      <label >内容</label>
+                      <textarea class="form-control" rows="6" placeholder="内容" name="content" ></textarea>
+                    </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="submit" class="btn btn-primary">保存</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- addData end-->
+
+    <!-- editData -->
+    <div class="modal fade" id="editActicle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">编辑文章</h4>
+          </div>
+         
+          <div class="modal-body">
+                <div class="form-group">
+                  <label >标题</label>
+                  <input type="text" class="form-control" placeholder="标题" name="title"  id="title">
+                </div>
+                <div class="form-group">
+                  <label >内容</label>
+                  <textarea class="form-control" rows="6" placeholder="内容" name="content" id="content"></textarea>
+                </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <a  href="#" class="btn btn-primary" id="editSub">保存</a>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <!-- editData end-->
+  <script src="javascripts/jquery.min.js"></script>
+  <script src="components/bootstrap/js/bootstrap.min.js"></script>
+  <script src="components/docs/js/docs.min.js"></script>
+  <script>
+      $(function(){
+            $('#acticle').on('click', 'a', function(event) {
+                 var _left=$(this),
+                     action=_left.data('action'),
+                     url=_left.data('href');
+                 if (action=='del') {
+                     $.ajax({
+                       url: url,
+                       type: 'post',
+                       dataType: 'JSON',
+                       data:{}
+                     })
+                     .done(function(data) {
+                       
+                        _left.parents('.acticle-box').remove();
+                     })
+                 }else if (action == 'edit') {
+                      var tit=_left.parents('.pull-right ').siblings('h4').text(),
+                          cont=_left.parents('.pull-right ').siblings('p').text();
+                      $('#title').val(tit);
+                      $('#content').val(cont)
+                      $('#editActicle').modal('show');
+                      $('#editSub').attr('data-href',url);
+                 }
+            });
+            $('#editSub').on('click', function(event) {
+                var _left=$(this),
+                    url=$(this).data('href');
+
+                    var data={
+                      title:$('#title').val(),
+                      content:$('#content').val()
+                    }
+                    $.ajax({
+                       url: url,
+                       type: 'post',
+                       dataType: 'JSON',
+                       data:data
+                     })
+                     .done(function(data) {
+                        console.log(data)
+                        window.location='/example'
+                     })
+              
+            });
+
+
+      })
+   </script>
+  </body>
+</html>
+
+
+
+
+
