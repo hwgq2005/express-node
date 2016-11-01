@@ -3,6 +3,7 @@ var router = express.Router();
 var controls = require('./controllers');
 var api=require('./database/example');
 
+//页面渲染
 router.get('/', controls.home.index);
 router.get('/example', controls.example.index);
 
