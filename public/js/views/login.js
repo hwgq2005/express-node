@@ -1,198 +1,60 @@
-/*
- * author       : Richa
- * date         : 2016-11-03
- * description  : 用户登录注册模块脚本
+/**
  * 
+ * @authors H君
+ * @date    2016-11-04 23:30:33
+ * @version 1.0
  */
+!function(window){
 
+	'use strict';
 
-define([
-	'jquery',
-	'messageZH'
-], function($) {
 	
-	/************************************************************************************************
-	 * 登录模块初始化
-	 *
-	 ************************************************************************************************/
-	function initLogin() {
-		initValidate('login');
-		bindEvent();
-	}
+	var $loginBtn = $("#login-btn");
+		
+	var login={
+
+		// 初始化
+		init:function(){
+
+			login.bindEvent();
+			login.valid();
+
+		},
+
+		//事件绑定
+		bindEvent:function(){
 
 
-	/************************************************************************************************
-	 * 注册模块初始化
-	 *
-	 ************************************************************************************************/
-	function initRegister() {
-		initValidate('register');
-		bindEvent();
-	}
-
-
-	/************************************************************************************************
-	 * 表单验证初始化
-	 *
-	 ************************************************************************************************/
-	function initValidate(type) {
-		if (type === 'login') {
-			$('#form-login').validate({
-				rules: {
-					account: {
-						required: true,
-						tel: true
-					},
-					password: {
-						required: true
-					},
-					vcode: {
-						required: true
-					}
-				},
-				messages: {
-					account: {
-						required: '请输入手机号',
-						tel: '手机号格式有误'
-					},
-					password: {
-						required: '请输入密码'
-					},
-					vcode: {
-						required: '请输入图片验证码'
-					}
+			$loginBtn.click(function(event) {
+				if ($('#login-form').valid()) {
+					console.log($('#login-form').serialize())
 				}
 			});
-		} else if (type === 'login') {
-			$('#form-register').validate({
+
+
+		},
+		
+		//表单验证
+		valid:function(){
+			
+			$("#login-form").validate({
 				rules: {
-					account: {
-						required: true,
-						tel: true
-					},
-					vcode: {
-						required: true
-					},
-					smscode: {
-						required: true
-					},
+					user: "required",
 					password: {
-						required: true
+						required: true,
+						minlength: 6
 					}
 				},
 				messages: {
-					account: {
-						required: '请输入手机号',
-						tel: '手机号格式有误'
-					},
-					vcode: {
-						required: '请输入图片验证码'
-					},
-					smscode: {
-						required: '请输入短信验证码'
-					},
-					password: {
-						required: '请输入密码'
-					}
+					user: "不能为空",
+					password: '密码至少6位数以上'
 				}
 			});
 		}
-	}
-
-
-	/************************************************************************************************
-	 * 事件定义
-	 *
-	 ************************************************************************************************/
-	function bindEvent() {
-
-		// 登录
-		$('#submit-login').on('click', function() {
-			if ($('#form-login').valid()) {
-				$.ajax({
-					url: '/user/login',
-					type: 'POST',
-					data: {
-						user: $('#login-account').val(),
-						pwd: $('#login-pwd').val()
-					}
-				})
-				.done(function(data) {
-					console.log(data);
-				})
-				.fail(function(err) {
-					console.log(err);
-				});
-			}
-		});
-
-
-		// 注册
-		$('#submit-register').on('click', function() {
-			if ($('#form-register').valid()) {
-				$.ajax({
-					url: '/user/login',
-					type: 'POST',
-					data: {
-						user: $('#register-account').val(),
-						pwd: $('#register-pwd').val()
-					}
-				})
-				.done(function(data) {
-					console.log(data);
-				})
-				.fail(function(err) {
-					console.log(err);
-				});
-			}
-		});
-
-
-		// 回车提交表单
-		$(document).on('keyup', '.form-control', function(e) {
-			if (e.keyCode == 13) {
-				$(this).closest('form').find('.submit').click();
-			}
-		});
-
-	}
-
-
-
-	/************************************************************************************************
-	 * 提交
-	 *
-	 ************************************************************************************************/
-	function submit(formType) {
-
-		// 登录
-		$('#submit-login').on('click', function() {
-			if ($('#form-login').valid()) {
-				$.ajax({
-					url: '/user/login',
-					type: 'POST',
-					data: {
-						user: $('#login-account').val(),
-						pwd: $('#login-pwd').val()
-					}
-				})
-				.done(function(data) {
-					console.log(data);
-				})
-				.fail(function(err) {
-					console.log(err);
-				});
-			}
-		});
-
-	}
-
-
-
-
-
-	return {
-		initLogin: initLogin,
-		initRegister: initRegister
+		
 	};
-});
+
+	login.init();
+
+}(this);
+	

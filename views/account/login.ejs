@@ -6,72 +6,39 @@
 	<base href="/">
 	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="js/plugins/hbook/dist/css/hbook.min.css">
 	<link rel="stylesheet" href="css/views/login.css">
-	<link rel='stylesheet' href='js/plugins/bootstrap/css/bootstrap.min.css' />
+	
 </head>
 <body>
 	
-	<%- include('../common/header', {page: ''}); %>
+	
+	<div class="login-box">
+		<h1 class="login-box-tit">
+			登录
+		</h1>
+		<div class="login-box-inner">
+			<form class="form-horizontal" id="login-form">
+			  <div class="form-group form-line-input">
+                <input id="user" class="form-control" name="user" type="text" >
+                <label for="user">用户名</label>
+                <span class="help-block"></span>
+              </div>
+			  <div class="form-group form-line-input">
+                <input id="pass" class="form-control" name="password" type="text"  >
+                <label for="pass">密码</label>
+                 <span class="help-block"></span>
+              </div>
 
-	<div class="container">
-		<div class="w-1080">
-			
-
-			<div class="login-box">
-				<header class="login-box-head">
-					<a href="javascript:;" class="actived">登录</a>
-					<a href="register">注册</a>
-				</header>
-
-				<div class="login-box-inner">
-					<form id="form-login">
-						<div class="form-group has-left-icon">
-							<input type="text" name="account" class="form-control" id="login-account" placeholder="手机号" maxlength="11">
-							<i class="icon-16 i16-0-0 hover-1"></i>
-							<i class="icon-16 i16-0-1 hover-2"></i>
-							<i class="icon-16 i16-3-0"></i>
-							<i class="icon-16 i16-3-1"></i>
-							<span class="help-block"></span>
-						</div>
-
-						<div class="form-group has-left-icon">
-							<input type="password" name="password" class="form-control" id="login-pwd" placeholder="密码" maxlength="32">
-							<i class="icon-16 i16-1-0 hover-1"></i>
-							<i class="icon-16 i16-1-1 hover-2"></i>
-							<i class="icon-16 i16-3-0"></i>
-							<i class="icon-16 i16-3-1"></i>
-							<span class="help-block"></span>
-						</div>
-
-						<div class="v-code-wrap">
-							<div class="form-group has-left-icon">
-								<input type="text" name="vcode" class="form-control" placeholder="验证码" maxlength="4">
-								<i class="icon-16 i16-2-0 hover-1"></i>
-								<i class="icon-16 i16-2-1 hover-2"></i>
-								<i class="icon-16 i16-3-0"></i>
-								<i class="icon-16 i16-3-1"></i>
-								<span class="help-block"></span>
-							</div>
-							<img src="images/demo.png" class="v-code-img" onclick="this.src=this.src+'?'">
-						</div>
-
-						<a href="javascript:;" class="submit" id="submit-login" style="margin-top:40px;">登录</a>
-						
-						
-					</form>
-				</div>
-			</div>
+              <a href="javascript:;" class="btn btn-large btn-block btn-primary" id="login-btn">登录</a>
+			</form>
 		</div>
 	</div>
-
-
-	<script src="js/require.min.js"></script>
-	<script src="js/config.js"></script>
-	<script>
-	    require(['js/views/login'], function(login) {
-	    	login.initLogin();
-	    });
-	</script>
-
+	
+	<script src="js/plugins/jquery/dist/jquery.min.js"></script>
+	<script src="js/plugins/hbook/dist/js/hbook.min.js"></script>
+	<script src="js/plugins/jquery.validate.min.js"></script>
+	<script src="js/plugins/message.js"></script>
+	<script src="js/views/login.js"></script>
 </body>
 </html>

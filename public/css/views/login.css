@@ -1,283 +1,37 @@
 @charset"utf-8";
 
-/*
- * author       : Richa
- * date         : 2016-11-03
- * description  : 登录注册模块样式
- */
-
+html{
+    height: 100%;
+}
 body {
-    background-color: #1B74C3;
-}
-
-.icon-16 {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    background: url(../../images/icon-16.png) no-repeat;
-}
-
-.icon-40 {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background: url(../../images/icon-40.png) no-repeat;
-}
-
-.i16-0-0 { background-position: -1px -1px; }
-.i16-0-1 { background-position: -19px -1px; }
-.i16-1-0 { background-position: -1px -19px; }
-.i16-1-1 { background-position: -19px -19px; }
-.i16-2-0 { background-position: -1px -37px; }
-.i16-2-1 { background-position: -19px -37px; }
-.i16-3-0 { background-position: -1px -55px; }
-.i16-3-1 { background-position: -19px -55px; }
-.i16-3-2 { background-position: -37px -55px; }
-
-.i40-0-0 { background-position: 0 0; }
-.i40-0-1 { background-position: -40px 0; }
-.i40-1-0 { background-position: 0 -40px; }
-.i40-1-1 { background-position: -40px -40px; }
-.i40-2-0 { background-position: 0 -80px; }
-.i40-2-1 { background-position: -40px -80px; }
-
-.topbar {
-    height: 0 !important;
-}
-
-.container {
     position: relative;
-}
-
-.topic-img {
-    position: absolute;
-    top: 140px;
-    left: 0;
+    background:url(../../images/login-bg.jpg) no-repeat fixed;
+    background-size: cover;
+    height: 100%;
 }
 
 .login-box {
-   
+    position: absolute;
+    top:50%;
+    left:50%;
     width: 380px;
-    margin: 100px auto 0;
-    padding: 0 30px 30px;
+    margin-top: -185px;
+    margin-left:-190px;
+    padding:30px 24px ;
     background-color: #fff;
+
 }
 
-.login-box-head {
-    height: 50px;
-    font-size: 0;
-}
-
-.login-box-head a {
-    display: inline-block;
-    width: 50%;
-    height: 50px;
-    font-size: 18px;
-    line-height: 54px;
-    border-bottom: 2px solid #e3e3e3;
+.login-box-tit{
     text-align: center;
-    color: #999;
-}
-
-.login-box-head a:hover {
+    font-size: 20px;
+    font-weight: normal;
     color: #666;
 }
 
-.login-box-head a.actived {
-    color: #333;
-    border-color: #00AAFF;
+.login-box-inner{
+    padding-top: 24px;
 }
-
-.login-box-inner {
-    padding-top: 34px;
-}
-
-.form-group {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.has-left-icon .icon-16 {
-    position: absolute;
-    top: 11px;
-    left: 10px;
-}
-
-.has-left-icon .hover-2,
-.has-left-icon .form-control:focus ~ .hover-1 {
-    display: none;
-}
-
-.has-left-icon .hover-1,
-.has-left-icon .form-control:focus ~ .hover-2 {
-    display: inline-block;
-}
-
-.form-group .form-control {
-    display: block;
-    width: 100%;
-    height: 38px;
-    border: 1px solid #bdbdbd;
-    border-radius: 2px;
-    font-size: 14px;
-    padding: 0 10px;
-}
-
-.form-group .form-control:focus {
-    border-color: #00AAFF;
-}
-
-.form-group.error .form-control {
-    border-color: #f99;
-}
-
-.form-group.has-left-icon .form-control {
-    padding-left: 32px;
-}
-
-.form-group .help-block {
-    display: block;
-    height: 0;
-    font-size: 12px;
-    line-height: 24px;
-    overflow: hidden;
-    color: #999;
-    -webkit-transition: all .2s ease;
-    -moz-transition: all .2s ease;
-    transition: all .2s ease;
-}
-
-.form-group.error .help-block {
-    height: 20px;
-    color: #f99;
-}
-
-.submit {
-    display: block;
-    height: 38px;
-    font-size: 16px;
-    line-height: 38px;
-    border-radius: 2px;
-    text-align: center;
-    margin-top: 20px;
-    color: #fff;
-    background-color: #00AAFF;
-}
-
-.submit:hover {
-    background-color: #0091DA;
-}
-
-.pwd-control {
-    padding: 20px 0 24px;
-    font-size: 14px;
-    line-height: 20px;
-}
-
-.pwd-control label {
-    cursor: pointer;
-    -webkit-transition: all .2s ease;
-    -moz-transition: all .2s ease;
-    transition: all .2s ease;
-}
-
-.pwd-control a:hover,
-.pwd-control label:hover {
-    color: #00AAFF;
-}
-
-input[type="checkbox"] {
-    display: inline-block;
-    position: relative;
-    top: 2px;
-}
-
-.third-login {
-    border-top: 1px solid #e3e3e3;
-    padding-top: 16px;
-}
-
-.hover-target .hover-2,
-.hover-target:hover .hover-1 {
-    display: none;
-}
-
-.hover-target .hover-1,
-.hover-target:hover .hover-2 {
-    display: block;
-}
-
-.third-login .fr {
-    font-size: 0;
-}
-
-.third-login .fr a {
-    display: inline-block;
-    margin-left: 14px;
-}
-
-.third-login .fl {
-    padding-top: 8px;
-}
-
-.v-code-wrap {
-    position: relative;
-    padding-right: 100px;
-}
-
-.v-code-wrap .v-code-img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 90px;
-    height: 38px;
-    border-radius: 2px;
-    cursor: pointer;
-}
-
-.form-group .i16-3-0,
-.form-group .i16-3-1 {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    left: auto;
-    display: none;
-}
-
-.form-group.success .i16-3-0,
-.form-group.error .i16-3-1 {
-    display: block;
-}
-
-.v-code-wrap .get-smscode {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 90px;
-    height: 38px;
-    line-height: 36px;
-    border: 1px solid #bdbdbd;
-    border-radius: 2px;
-    text-align: center;
-    color: #999;
-}
-
-.v-code-wrap .get-smscode:hover {
-    border-color: #00AAFF;
-    color: #00AAFF;
-}
-
-.v-code-wrap .get-smscode.disabled {
-    border-color: #bdbdbd;
-    color: #999;
-}
-
-.agree-box {
-    border-top: 1px solid #e3e3e3;
-    margin-top: 30px;
-    padding-top: 27px;
-}
-
-.agree-box a {
-    color: #00AAFF;
+.login-box-inner .btn{
+    margin-top: 48px;
 }
