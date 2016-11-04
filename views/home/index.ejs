@@ -3,6 +3,7 @@
   <head>
   	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<base href="/">
 	<title><%= title %></title>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
@@ -12,7 +13,7 @@
   </head>
   <body >
    
-   	<%- include('common/header', {page: 'index'}); %>
+   	<%- include('../common/header', {page: 'index'}); %>
   
 	
     <div class="container">
@@ -208,7 +209,7 @@ collection.count({}, function(err, count){...} )
 	    
    </div>
 
-   <%- include('common/footer'); %>
+   <%- include('../common/footer'); %>
 	<script src="js/plugins/jquery.min.js"></script>
 	<script src="js/plugins/bootstrap/js/bootstrap.min.js"></script>
 	<script src="js/plugins/docs/js/docs.min.js"></script>

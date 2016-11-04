@@ -1,0 +1,80 @@
+@charset"utf-8";
+
+/*
+ * author       : Richa
+ * date         : 2016-11-03
+ * description  : 公用样式
+ */
+
+a {
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.w-1080 {
+    position: relative;
+    width: 1080px;
+    margin: 0 auto;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.topbar {
+    height: 60px;
+}
+
+.topbar-inner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    z-index: 99;
+}
+
+.topbar-inner .logo {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.topbar-inner .logo img {
+    display: block;
+    height: 40px;
+}
+
+.topbar-inner .back {
+    font-size: 14px;
+    float: right;
+    color: #999;
+    line-height: 40px;
+    margin-top: 10px;
+}
+
+.topbar-inner .back:hover {
+    color: #666;
+}
+
+.footer {
+    height: 150px;
+    background-color: #fff;
+}

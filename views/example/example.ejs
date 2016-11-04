@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title><%= title %> </title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <base href="/">
+    <title><%= title %> </title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
     <link rel='stylesheet' href='js/plugins/bootstrap/css/bootstrap.min.css' />
     <link rel='stylesheet' href='js/plugins/docs/css/docs.min.css' />
     <style>
@@ -24,7 +25,7 @@
   </head>
   <body>
    
-   <%- include('common/header', {page: 'example'}); %>
+   <%- include('../common/header', {page: 'example'}); %>
 
   
     <div class="container">
@@ -38,8 +39,8 @@
                           <p><%= val.content %></p>
                           <div class="pull-right "><span style="margin-right:10px"><%= val.time %></span>
                            <div class="btn-group">
-                              <a href="#" class="btn btn-success btn-xs">全文</a>
-                              <a href="#" class="btn btn-primary btn-xs" data-href="/acticle/update/<%= val._id %>" data-action="edit">编辑</a>
+                              <a href="javascript:;" class="btn btn-success btn-xs">全文</a>
+                              <a href="javascript:;" class="btn btn-primary btn-xs" data-href="/acticle/update/<%= val._id %>" data-action="edit">编辑</a>
                               <a href="javascript:;" data-href="/acticle/delete/<%= val._id %>" class="btn btn-danger btn-xs" data-action="del">删除</a>
                             </div>
                           </div>
@@ -53,7 +54,7 @@
          
     </div>
 
-    <%- include('common/footer'); %>
+    <%- include('../common/footer'); %>
 
     <!-- addData -->
     <div class="modal fade" id="addActicle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -105,7 +106,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-            <a  href="#" class="btn btn-primary" id="editSub">保存</a>
+            <a  href="javascript:;" class="btn btn-primary" id="editSub">保存</a>
           </div>
           
         </div>
@@ -114,7 +115,6 @@
     <!-- editData end-->
   <script src="js/plugins/jquery.min.js"></script>
   <script src="js/plugins/bootstrap/js/bootstrap.min.js"></script>
-  <script src="js/plugins/docs/js/docs.min.js"></script>
   <script>
       $(function(){
             $('#acticle').on('click', 'a', function(event) {
@@ -156,8 +156,7 @@
                        data:data
                      })
                      .done(function(data) {
-                        console.log(data)
-                        window.location='/example'
+                        window.location.reload();
                      })
               
             });
