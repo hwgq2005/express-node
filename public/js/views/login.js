@@ -27,10 +27,20 @@
 
 			$loginBtn.click(function(event) {
 				if ($('#login-form').valid()) {
-					console.log($('#login-form').serialize())
+					$.ajax({
+					  method: "POST",
+					  url: "/account/loginIn",
+					  data: $('#login-form').serialize()
+					}).done(function( data ) {
+					   	if (data.status == 0 ) {
+ 							window.location = "index.html";
+ 						}
+					});
 				}
 			});
 
+
+			
 
 		},
 		
