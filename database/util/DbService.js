@@ -6,7 +6,7 @@
  */
 
 var ConstantStatus = require('../util/ConstantStatus');
-// var logger = require('../../log4js/log').logger;
+var logger = require('../../common/log');
 
 module.exports = function()
 {
@@ -52,6 +52,7 @@ module.exports = function()
             var jsonStr = "";
 
             if(error) {
+                logger.error(error);
                 code = ConstantStatus.DBERROR;
                 message = ConstantStatus.DBERROR_MSG;
                 var errStr = JSON.stringify(error);
@@ -68,6 +69,7 @@ module.exports = function()
             deferred.resolve(JSON.parse(jsonStr));
             //this.connect().close();
         });
+
         return deferred.promise;
     }
 
@@ -85,7 +87,7 @@ module.exports = function()
                 var message = ConstantStatus.SUCCESS_MSG;
                 var jsonStr = "";
                 if(error) {
-                    // logger.error(error);
+                    logger.error(error);
                     code = ConstantStatus.DBERROR;
                     message = ConstantStatus.DBERROR_MSG;
                     var errStr = JSON.stringify(error);
@@ -97,6 +99,7 @@ module.exports = function()
                     jsonStr = '{"status": "'+code+'", "message": "'+message+'"}';
 
                 }
+                
                 callback( JSON.parse(jsonStr) );
             });
     };
@@ -115,6 +118,7 @@ module.exports = function()
             var jsonStr = "";
 
             if(error) {
+                logger.error(error);
                 code = ConstantStatus.DBERROR;
                 message = ConstantStatus.DBERROR_MSG;
                 var errStr = JSON.stringify(error);
@@ -146,6 +150,7 @@ module.exports = function()
             var jsonStr = "";
 
             if(error) {
+                logger.error(error);
                 code = ConstantStatus.DBERROR;
                 message = ConstantStatus.DBERROR_MSG;
                 var errStr = JSON.stringify(error);
@@ -173,6 +178,7 @@ module.exports = function()
             var jsonStr = "";
 
             if(error) {
+                logger.error(error);
                 code = ConstantStatus.DBERROR;
                 message = ConstantStatus.DBERROR_MSG;
                 var errStr = JSON.stringify(error);
@@ -202,6 +208,7 @@ module.exports = function()
             var jsonStr = "";
 
             if(error) {
+                logger.error(error);
                 code = ConstantStatus.DBERROR;
                 message = ConstantStatus.DBERROR_MSG;
                 var errStr = JSON.stringify(error);
@@ -225,6 +232,7 @@ module.exports = function()
             var message = ConstantStatus.SUCCESS_MSG;
             var jsonStr = "";
             if(error) {
+                logger.error(error);
                 code = ConstantStatus.DBERROR;
                 message = ConstantStatus.DBERROR_MSG;
                 var errStr = JSON.stringify(error);
@@ -247,6 +255,7 @@ module.exports = function()
             var jsonStr = "";
 
             if(error) {
+                logger.error(error);
                 code = ConstantStatus.DBERROR;
                 message = ConstantStatus.DBERROR_MSG;
                 var errStr = JSON.stringify(error);
@@ -280,6 +289,7 @@ module.exports = function()
             var jsonStr = "";
 
             if(error) {
+                logger.error(error);
                 code = ConstantStatus.DBERROR;
                 message = ConstantStatus.DBERROR_MSG;
                 var errStr = JSON.stringify(error);
@@ -313,6 +323,7 @@ module.exports = function()
             var jsonStr = "";
 
             if(error) {
+                logger.error(error);
                 code = ConstantStatus.DBERROR;
                 message = ConstantStatus.DBERROR_MSG;
                 var errStr = JSON.stringify(error);
@@ -344,6 +355,7 @@ module.exports = function()
             var jsonStr = "";
 
             if(error) {
+                logger.error(error);
                 code = ConstantStatus.DBERROR;
                 message = ConstantStatus.DBERROR_MSG;
                 var errStr = JSON.stringify(error);

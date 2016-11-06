@@ -1,6 +1,7 @@
 
 var oauth = require('../common/OAuthHelp');
 var api = require('../common/ApiHelp');
+var logger = require('../common/log');
 
 var user = require('../database/entity/user');
 var dbService = require('../database/util/DbService');
@@ -9,10 +10,8 @@ var ConstantStatus = require('../database/util/ConstantStatus');
 exports.login = function(req, res){
 	res.render('account/login', {
 		title: '登录'
-
 	});
 }
-
 
 exports.register = function(req, res){
 	res.render('account/register', {
@@ -20,18 +19,13 @@ exports.register = function(req, res){
 	});
 }
 
-exports.loginOut = function(req, res){
-	req.session.user = null;
-	res.redirect("/login");
-}
-
+// 登录
 exports.loginIn = function(req, res){
 	
 	var filter  = {user: req.body.user };
 	var pwd = req.body.password;
 
 	dbService.findDataByOne(user.tableName, user.schema,filter,{}, {}, function( data) {
-		console.log(data)
 		var code = ConstantStatus.DBNULL;
         var message = ConstantStatus.DBNULL_MSG;
 		if(data.status == code){
@@ -40,7 +34,6 @@ exports.loginIn = function(req, res){
             msg = '{"status": "'+code+'", "message": "'+message+'"}';
             res.json(JSON.parse(msg));
 		}else{
-			
 			if (pwd != data.data.password) {
 				code = ConstantStatus.PASSWORK;
             	message = ConstantStatus.PASSWORK_MSG;
@@ -68,7 +61,7 @@ exports.loginIn = function(req, res){
 	// });
 }
 
-
+// 注册
 exports.registerUser = function(req, res){
 	
 	var filter    = {user: req.body.user };
@@ -79,7 +72,6 @@ exports.registerUser = function(req, res){
  	dbService.findDataByOne(user.tableName, user.schema,filter,{}, {}, function( data) {
  		var code = ConstantStatus.DBNULL;
         var message = ConstantStatus.DBNULL_MSG;
-
  		if(data.status == code){
  			dbService.saveOrUpdate(user.tableName, user.schema,{}, {},values, function(data){
  				req.session.user = data.data;
@@ -91,7 +83,12 @@ exports.registerUser = function(req, res){
             msg = '{"status": "'+code+'", "message": "'+message+'"}';
             res.json(JSON.parse(msg));
  		}
-
  	})
 	
+}
+
+// 退出登录
+exports.loginOut = function(req, res){
+	req.session.user = null;
+	res.redirect("/login");
 }

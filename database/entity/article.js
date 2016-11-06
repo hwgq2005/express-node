@@ -13,8 +13,8 @@ var schema = new mongoose.Schema({
     //内容
     content : {type:String},
 
-    //角色
-    time: {type : String}
+    //创建时间
+    date: { type: Date, default: Date.now}
     
 });
 
