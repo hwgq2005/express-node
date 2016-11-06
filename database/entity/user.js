@@ -5,10 +5,10 @@ var mongoose = require('mongoose');
 var schema = new mongoose.Schema({
 
     //账号
-    user: {type : String},
+    user: {type : String, required:true},
 
     //密码
-    password : {type : String},
+    password : {type : String, required:true},
 
     //手机
     molibe : {type:String},
