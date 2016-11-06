@@ -7,6 +7,8 @@
 
 var ConstantStatus = require('../util/ConstantStatus');
 var logger = require('../../common/log');
+var Q = require('q');
+var deferred = Q.defer();
 
 module.exports = function()
 {
@@ -44,8 +46,7 @@ module.exports = function()
      */
     service.insert = function(tableName, schema,  values, option, callback){
         var Model = this.connect(tableName ).model(tableName, schema, tableName);
-        Q   = require('q');
-        var deferred = Q.defer();
+        
         Model.collection.insert(values, option, function(error, result){
             var code = ConstantStatus.SUCCESS;
             var message = ConstantStatus.SUCCESS_MSG;
@@ -99,7 +100,7 @@ module.exports = function()
                     jsonStr = '{"status": "'+code+'", "message": "'+message+'"}';
 
                 }
-                
+
                 callback( JSON.parse(jsonStr) );
             });
     };
@@ -280,8 +281,8 @@ module.exports = function()
     service.getDatas = function (tableName, schema, filter, fields, options)
     {
         var MyModel = this.connect().model(tableName, schema, tableName);
-        Q   = require('q');
-        var deferred = Q.defer();
+        
+       
         MyModel.find(filter, fields, options, function(error, result){
 
             var code = ConstantStatus.SUCCESS;
@@ -315,8 +316,7 @@ module.exports = function()
     service.getDataByOne = function(tableName, schema, filter, fields, option)
     {
         var model = this.connect().model(tableName, schema, tableName);
-        Q   = require('q');
-        var deferred = Q.defer();
+       
         model.findOne( filter, function (error, result) {
             var code = ConstantStatus.SUCCESS;
             var message = ConstantStatus.SUCCESS_MSG;
@@ -347,8 +347,7 @@ module.exports = function()
      */
     service.count = function(tableName, schema,  filter){
         var Model = this.connect(tableName ).model(tableName, schema, tableName);
-        Q   = require('q');
-        var deferred = Q.defer();
+      
         Model.count(filter, function(error, result){
             var code = ConstantStatus.SUCCESS;
             var message = ConstantStatus.SUCCESS_MSG;
