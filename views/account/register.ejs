@@ -40,10 +40,13 @@
 		</div>
 	</div>
 	
-	<script src="js/plugins/jquery/dist/jquery.min.js"></script>
-	<script src="js/plugins/hbook/dist/js/hbook.min.js"></script>
-	<script src="js/plugins/jquery.validate.min.js"></script>
-	<script src="js/plugins/message.js"></script>
-	<script src="js/views/register.js"></script>
+	<script src="js/require.min.js"></script>
+	<script src="js/config.js"></script>
+	<script>
+	    require(['views/register'],function(register){
+	    	register.init();
+	    });
+	</script>
+	
 </body>
 </html>

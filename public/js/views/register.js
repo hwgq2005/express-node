@@ -4,7 +4,10 @@
  * @date    2016-11-04 23:30:33
  * @version 1.0
  */
-!function(window){
+define([
+	'common',
+	'messageZH'
+], function() {
 
 	'use strict';
 
@@ -64,7 +67,10 @@
 		
 	};
 
-	login.init();
 
-}(this);
+	return {
+		init :login.init
+	}
+	
+});
 	

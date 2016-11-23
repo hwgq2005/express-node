@@ -1,25 +1,18 @@
 @charset"utf-8";
 
-.container{
-    position: relative;
-    width: 1024px;
-    margin: 0 auto;
+/* 正在加载中 */
+.load-data{
+  padding: 30px 0;
+  text-align: center;
+  font-size: 14px;
 }
-.clearfix:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
+.load-data i {
+  margin-right: 5px;
 }
-.clearfix {
-    display: block;
-    zoom: 1;
-}
-.pull-left{
-    float:left;
-}
-.pull-right{
-    float:right;
+
+.footer{
+	margin-top: 50px;
+    padding: 10px 10px 40px;
+    color: #999;
+    text-align: center;
 }

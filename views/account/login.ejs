@@ -4,9 +4,7 @@
 	<meta charset="UTF-8">
 	<title><%= title %></title>
 	<base href="/">
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/common.css">
-	<link rel="stylesheet" href="js/plugins/hbook/dist/css/hbook.min.css">
+	<%- include('../common/style'); %>
 	<link rel="stylesheet" href="css/views/login.css">
 	
 </head>
@@ -35,10 +33,14 @@
 		</div>
 	</div>
 	
-	<script src="js/plugins/jquery/dist/jquery.min.js"></script>
-	<script src="js/plugins/hbook/dist/js/hbook.min.js"></script>
-	<script src="js/plugins/jquery.validate.min.js"></script>
-	<script src="js/plugins/message.js"></script>
-	<script src="js/views/login.js"></script>
+
+	<script src="js/require.min.js"></script>
+	<script src="js/config.js"></script>
+	<script>
+	    require(['views/login'],function(login){
+	    	login.init();
+	    });
+	</script>
+	
 </body>
 </html>

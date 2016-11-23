@@ -1,0 +1,32 @@
+
+.topic-bg{
+    position: relative;
+    height: 340px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: #fff;
+    overflow: hidden;
+}
+
+.topic{
+    margin-bottom: 48px;
+    min-height: 500px;
+}
+.topic-module{
+    margin: 48px 0 8px;
+}
+.topic-module .topic-tit{
+    margin-bottom: 32px;
+    padding-left: 20px;
+    border-left: 4px solid #6CF ;
+    font-size: 20px;
+    font-weight: normal;
+    color: #333;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.topic-module .topic-list{
+    /* min-height: 500px; */
+}

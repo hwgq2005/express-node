@@ -1,6 +1,7 @@
 
 define([
-	'jquery'
+	'jquery',
+	'hbook'
 ], function($) {
 
 
