@@ -16,7 +16,10 @@
 .topic-module{
     margin: 48px 0 8px;
 }
-.topic-module .topic-tit{
+.topic-module .module-tit{
+    position: relative;
+}
+.topic-module .module-tit h1{
     margin-bottom: 32px;
     padding-left: 20px;
     border-left: 4px solid #6CF ;
@@ -27,6 +30,38 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.topic-module .topic-list{
-    /* min-height: 500px; */
+.topic-module .add-topic{
+   position: absolute;
+   top: 0;
+   right: 0;
 }
+.topic-list{
+    margin-bottom: 24px;
+}
+.topic-list .topic-content{
+    padding: 24px 0;
+    border-bottom: 1px solid #efefef;
+}
+.topic-list .topic-content .topic-tit{
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 1.6rem;
+    font-weight: normal;
+}
+.topic-list .topic-content .topic-tit a{
+    color: #666;
+}
+.topic-list .topic-content .topic-tit a:hover{
+    color:#6CF;
+}
+.topic-list .topic-content .topic-sum{
+    margin-bottom: 20px;
+    line-height: 20px;
+    color: #999;
+    font-size: 1.4rem;
+}
+.topic-list .topic-content .topic-sum a,
+.topic-list .topic-content .topic-bottom{
+    color: #999;
+}  
+

@@ -5,7 +5,8 @@ var controls = require('./controllers');
 
 
 //页面渲染
-router.get('/', isLogin, controls.home.index);
+router.get('/', isLogin, controls.topic.index);
+router.get('/topic/add', isLogin, controls.topic.addTopic);
 router.get('/acticle', isLogin, controls.acticle.acticle);
 router.get('/login', controls.account.login);
 router.get('/register', controls.account.register);
@@ -22,9 +23,11 @@ router.post("/account/register",controls.account.registerUser);
 router.get("/account/logOut",controls.account.loginOut);
 
 //发布文章
-router.post('/acticle/add',controls.acticle.add);
-router.post('/acticle/update/:id',controls.acticle.update);
-router.post('/acticle/delete/:id',controls.acticle.delete);
+router.get('/topic/list',controls.topic.list);
+router.get('/topic/add',controls.topic.list);
+router.post('/topic/add',controls.topic.add);
+router.post('/topic/update/:id',controls.topic.update);
+router.post('/topic/delete/:id',controls.topic.delete);
 
 // 判断是否登录
 function isLogin(req,res,next){

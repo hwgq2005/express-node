@@ -31,8 +31,21 @@ define([
 			// 	limit  : limit
 			// };
 		
-	 	$topicList.html(ejs.render(temp));
-
+	 	
+	 	$.ajax({
+	 		url: '/topic/list',
+	 		type: 'get',
+	 		dataType: 'json',
+	 		data:'',
+	 	})
+	 	.done(function(data) {
+	 		$topicList.html(ejs.render(temp,data));
+	 	})
+	 	.fail(function() {
+	 		console.log("error");
+	 	})
+	 
+	 	
 	 	$('#page').page({
 	 		current: thisPage,
 			pageCount: 26,

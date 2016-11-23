@@ -1,55 +1,13 @@
-<li class="table-view-cell ">
-  <div class="media-object pull-left">
-      <a href="javascript:;"><img src="images/login-bg.jpg" alt="" width="48" height="48" class="btn-radius-4" > </a>
-  </div>
-  <div class="media-body">
-    <div class="media-tit">
-      <a href="javascript:;">迷笛音乐</a>
-    </div>
-    <div class="media-sum">
-      <a href="javascript:;">生活很无趣幸好有迷笛生活很无趣幸</a>
-    </div>
-  </div>
-</li>
+<% if(data.length > 0) {%>
+  <% data.forEach(function(data,index){ %>
+      <li class="topic-content">
+        <h2 class="topic-tit"><a href="javascript:;"><%= data.title  %></a></h2>
+        <p class="topic-sum">
+          <a href="javascript:;"><%= data.content  %></a>
+        </p>
+        <div class="topic-bottom"><%= data.date  %></div>
+      </li>
+  <% }) %>
+<% }else{%>
 
-<li class="table-view-cell ">
-  <div class="media-object pull-left">
-      <a href="javascript:;"><img src="images/login-bg.jpg" alt="" width="48" height="48" class="btn-radius-4" > </a>
-  </div>
-  <div class="media-body">
-    <div class="media-tit">
-      <a href="javascript:;">迷笛音乐</a>
-    </div>
-    <div class="media-sum">
-      <a href="javascript:;">生活很无趣幸好有迷笛生活很无趣幸</a>
-    </div>
-  </div>
-</li>
-
-<li class="table-view-cell ">
-  <div class="media-object pull-left">
-      <a href="javascript:;"><img src="images/login-bg.jpg" alt="" width="48" height="48" class="btn-radius-4" > </a>
-  </div>
-  <div class="media-body">
-    <div class="media-tit">
-      <a href="javascript:;">迷笛音乐</a>
-    </div>
-    <div class="media-sum">
-      <a href="javascript:;">生活很无趣幸好有迷笛生活很无趣幸</a>
-    </div>
-  </div>
-</li>
-
-<li class="table-view-cell ">
-  <div class="media-object pull-left">
-      <a href="javascript:;"><img src="images/login-bg.jpg" alt="" width="48" height="48" class="btn-radius-4" > </a>
-  </div>
-  <div class="media-body">
-    <div class="media-tit">
-      <a href="javascript:;">迷笛音乐</a>
-    </div>
-    <div class="media-sum">
-      <a href="javascript:;">生活很无趣幸好有迷笛生活很无趣幸</a>
-    </div>
-  </div>
-</li>
+<% } %>

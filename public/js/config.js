@@ -18,7 +18,7 @@ require.config({
 		hbook 				: 'plugins/hbook/dist/js/hbook.min',
 		
 		// 表单验证
-		jqueryValidate		: 'plugins/jquery.validate.min',
+		jqueryValidate		: 'plugins/jquery.validate',
 		messageZH			: 'plugins/message',
 
 		// 前端模板引擎
