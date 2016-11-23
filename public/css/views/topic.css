@@ -37,6 +37,7 @@
 }
 .topic-list{
     margin-bottom: 24px;
+    min-height: 500px;
 }
 .topic-list .topic-content{
     padding: 24px 0;
@@ -65,3 +66,11 @@
     color: #999;
 }  
 
+.topic-list .topic-content .topic-bottom{
+    position: relative;
+}
+.topic-list .topic-content .topic-bottom .btns-group{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

@@ -61,7 +61,23 @@ define([
 	// 绑定事件
 	topic.bindEvent=function(){
 
-		
+		$topicList.on('click', 'a', function(event) {
+			var $self = $(this),
+			    _id = $self.data('id'),
+			    _action = $self.data('action');
+
+			if (_action === 'del') {
+
+                $.ajax({
+				  method: "POST",
+				  url: "/topic/delete/"+_id
+				}).done(function( data ) {
+				   	if (data.status == 0 ) {
+						$self.closest('li').remove();
+					}
+				});
+			}
+		});
 
       
 	}

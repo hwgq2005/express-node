@@ -11,10 +11,31 @@ exports.index=function(req,res){
 
 exports.addTopic=function(req,res){
 	
-	res.render("topic/addTopic",{
-		title:"新增资讯",
-		name: req.session.user.user
-	});
+
+	var id = req.query.id;
+	if (id) {
+		dbService.findDataById(article.tableName, article.schema, id, "", '', function(data){
+			console.log(data)
+			if (data.status == 0) {
+				res.render("topic/addTopic",{
+					title:"编辑资讯",
+					data:data.data,
+					name: req.session.user.user
+				});
+			}else{
+				res.redirect("/");
+			}
+			
+		})
+	}else{
+		res.render("topic/addTopic",{
+			title:"新增资讯",
+			data:'',
+			name: req.session.user.user
+		});
+	}
+	
+	
 
 }
 

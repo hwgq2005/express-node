@@ -8,7 +8,7 @@
 define([
 	'common',
 	'messageZH'
-], function() {
+], function(common) {
 
 	var topic = {} ,
 		$topicForm = $('#topic-form');
@@ -23,12 +23,11 @@ define([
 	// 绑定事件
 	topic.bindEvent=function(){
 
-
 		$('#login-btn').click(function(event) {
 			if ($topicForm.valid()) {
 				$.ajax({
 				  method: "POST",
-				  url: "/acticle/add",
+				  url: "/topic/add",
 				  data: $topicForm.serialize()
 				}).done(function( data ) {
 				   	if (data.status == 0 ) {
@@ -37,8 +36,22 @@ define([
 				});
 			}
 		});
-		
 
+		var id = common.getQueryString('id');
+		$('#edit-topic').click(function(event) {
+			console.log($topicForm.serialize())
+			if ($topicForm.valid()) {
+				$.ajax({
+				  method: "POST",
+				  url: "/topic/update/"+id,
+				  data: $topicForm.serialize()
+				}).done(function( data ) {
+				   	if (data.status == 0 ) {
+						window.location = "index.html";
+					}
+				});
+			}
+		});
       
 	}
 

@@ -18,23 +18,22 @@
 		<div class="topic">
 	    	<div class="topic-module clearfix" >
 	    		<div class="module-tit">
-	    			 <h1 >新增资讯</h1>
+	    			 <h1 ><%= title  %></h1>
 	    		</div>
 	           	
 	           	<div class="module-content">
 	           		<form class="form-horizontal" id="topic-form">
 					  <div class="form-group form-line-input">
-		                <input id="user" class="form-control " name="title" type="text" >
+		                <input id="user" class="form-control <%= data ? 'edited' : '' %>" name="title" type="text" value="<%= data ? data.title: ''  %>">
 		                <label for="user">标题</label>
 		                <span class="help-block"></span>
 		              </div>
 					  <div class="form-group form-line-input">
-					    <textarea class="form-control" rows="6" name="content"></textarea>
+					    <textarea class="form-control <%= data ? 'edited' : '' %>" rows="6" name="content" ><%= data ? data.content: ''%></textarea>
 		                <label for="pass">内容</label>
 		                <span class="help-block"></span>
 		              </div>
-						
-		              <a href="javascript:;" class="btn btn-large btn-block btn-primary" id="login-btn" style="margin-top:48px;">保存</a>
+		              <a href="javascript:;" class="btn btn-large btn-block btn-primary" id="<%= data ? 'edit-topic': 'login-btn'  %>" style="margin-top:48px;">保存</a>
 					</form>
 	           	</div>
 	    	</div>

@@ -5,7 +5,14 @@
         <p class="topic-sum">
           <a href="javascript:;"><%= data.content  %></a>
         </p>
-        <div class="topic-bottom"><%= data.date  %></div>
+        <div class="topic-bottom">
+        	<span class="date"><%= data.date  %></span>
+
+        	<div class="btns-group">
+	        	<a href="topic/add?id=<%= data._id %>" class="btn btn-mini btn-primary" >编辑</a>
+	        	<a href="javascript:;" class="btn btn-mini btn-danger" data-id="<%= data._id %>" data-action="del">删除</a>
+        	</div>
+        </div>
       </li>
   <% }) %>
 <% }else{%>
