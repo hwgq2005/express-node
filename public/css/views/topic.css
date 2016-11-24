@@ -10,11 +10,10 @@
 }
 
 .topic{
-    margin-bottom: 48px;
     min-height: 500px;
 }
 .topic-module{
-    margin: 48px 0 8px;
+    margin: 48px 0 ;
 }
 .topic-module .module-tit{
     position: relative;
@@ -82,12 +81,13 @@
 .topic-detail .topic-detail-tit{    
     margin-bottom: 20px;
     line-height: 36px;
-    color: #666;
+    color: #333;
     font-size: 2.4rem;
     font-weight: normal;
 }
 .topic-detail .topic-detail-label{
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-size: 1.6rem;
 }
 .topic-detail .topic-detail-label .date{
     color: #999;
