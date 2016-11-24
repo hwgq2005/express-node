@@ -14,7 +14,7 @@
    
    	<%- include('../common/header', {page: 'index'}); %>
   
-	<div class="container">
+	<div class="w-768">
 		<div class="topic">
 	    	<div class="topic-module clearfix" >
 	    		<div class="module-tit">
@@ -24,16 +24,23 @@
 	           	<div class="module-content">
 	           		<form class="form-horizontal" id="topic-form">
 					  <div class="form-group form-line-input">
-		                <input id="user" class="form-control <%= data ? 'edited' : '' %>" name="title" type="text" value="<%= data ? data.title: ''  %>">
-		                <label for="user">标题</label>
+		                <input id="title" class="form-control <%= data ? 'edited' : '' %>" name="title" type="text" value="<%= data ? data.title: ''  %>">
+		                <label for="title">标题</label>
 		                <span class="help-block"></span>
 		              </div>
 					  <div class="form-group form-line-input">
-					    <textarea class="form-control <%= data ? 'edited' : '' %>" rows="6" name="content" ><%= data ? data.content: ''%></textarea>
-		                <label for="pass">内容</label>
+					    <textarea id="content" class="form-control <%= data ? 'edited' : '' %>" rows="4" name="summary" ><%= data ? data.summary: ''%></textarea>
+		                <label for="content">摘要</label>
 		                <span class="help-block"></span>
 		              </div>
-		              <a href="javascript:;" class="btn btn-large btn-block btn-primary" id="<%= data ? 'edit-topic': 'login-btn'  %>" style="margin-top:48px;">保存</a>
+		              <div class="form-group  form-line-input"  style="min-height:350px;">
+						<label for="" class="label-tit">详情</label>
+		              	<script  type="text/plain" id="myeditor" name="contents" style="height:300px;"><%- data ? data.content: ''%></script>
+		              </div>
+
+		              <div class="btns-group" >
+	              			<a href="javascript:;" class="btn btn-large btn-block btn-primary" id="<%= data ? 'edit-topic': 'login-btn'  %>" style="margin-top:48px;">保存</a>
+		              </div>
 					</form>
 	           	</div>
 	    	</div>

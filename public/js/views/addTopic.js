@@ -7,17 +7,25 @@
 
 define([
 	'common',
+	'baidueditor', 
+	'zeroclipboard', 
+	'bdlang',
 	'messageZH'
-], function(common) {
+], function(common,UE, zcl) {
 
 	var topic = {} ,
 		$topicForm = $('#topic-form');
-		
+	
+	window.ZeroClipboard = zcl;	
+	var ue = null ;
 	// 初始化
 	topic.init=function(){
+
    		topic.bindEvent();
    		topic.valid();
 
+		ue = UE.getEditor(myeditor,common.UEConfig);
+		
 	};
 
 	// 绑定事件
@@ -28,8 +36,9 @@ define([
 				$.ajax({
 				  method: "POST",
 				  url: "/topic/add",
-				  data: $topicForm.serialize()
+				  data: $topicForm.serialize() + '&content='+ue.getContent()
 				}).done(function( data ) {
+					
 				   	if (data.status == 0 ) {
 						window.location = "index.html";
 					}
@@ -44,8 +53,9 @@ define([
 				$.ajax({
 				  method: "POST",
 				  url: "/topic/update/"+id,
-				  data: $topicForm.serialize()
+				  data: $topicForm.serialize() + '&content='+ue.getContent()
 				}).done(function( data ) {
+					
 				   	if (data.status == 0 ) {
 						window.location = "index.html";
 					}
@@ -59,11 +69,11 @@ define([
 		$("#topic-form").validate({
 			rules: {
 				title: "required",
-				content: "required"
+				summary: "required"
 			},
 			messages:{
 				title: "不能为空",
-				content: '不能为空'
+				summary: '不能为空'
 			}
 		});
 	}

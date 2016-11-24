@@ -11,6 +11,18 @@ define([
 		$('#navbar').toggleClass('in');
 	});
 	
+	// 百度编辑器菜单配置
+	var UEConfig= {
+		toolbars: [
+		    ['fontfamily','fontsize','bold','italic',
+		    'underline','strikethrough','forecolor',
+		    'insertorderedlist','insertunorderedlist',
+		    'simpleupload','insertimage','cleardoc']
+		],
+		zIndex : 0,
+		elementPathEnabled: false,
+		wordCount: false
+	};
 
 	function getQueryString(name) {
 
@@ -24,6 +36,7 @@ define([
 	}
 
 	return {
-		getQueryString:getQueryString
+		getQueryString:getQueryString,
+		UEConfig:UEConfig
 	}
 });

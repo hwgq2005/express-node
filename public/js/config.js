@@ -26,7 +26,12 @@ require.config({
 		text	 			: 'plugins/text',
 
 		// 图片上传
-		webuploader			: 'plugins/webuploader/webuploader.min',
+		webuploader			: 'plugins/ueditor/third-party/webuploader/webuploader.min',
+
+		// 复文本框
+		baidueditor			: 'plugins/ueditor/ueditor',
+    	bdlang				: 'plugins/ueditor/lang/zh-cn/zh-cn',
+    	ZeroClipboard       : 'plugins/ueditor/third-party/zeroclipboard/ZeroClipboard.min',
 
 		// 日期选择插件
 		datepicker 			: 'plugins/bootstrap-datepicker/js/bootstrap-datepicker',
@@ -60,6 +65,12 @@ require.config({
 			deps : ['jqueryValidate']
 		},
 
+		baidueditor: {
+	   		deps: ['plugins/ueditor/ueditor.config','css!plugins/ueditor/themes/default/css/ueditor']
+	    },
+	    bdlang:{
+	    	deps: ['baidueditor']
+	    },
 		datepickerLang:{
 			deps : ['datepicker','css!plugins/bootstrap-datepicker/css/datepicker']
 		}
