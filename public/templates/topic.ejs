@@ -1,9 +1,9 @@
 <% if(data.length > 0) {%>
   <% data.forEach(function(data,index){ %>
       <li class="topic-content">
-        <h2 class="topic-tit"><a href="javascript:;"><%= data.title  %></a></h2>
+        <h2 class="topic-tit"><a href="/topic/detail?id=<%= data._id %>"><%= data.title  %></a></h2>
         <p class="topic-sum">
-          <a href="javascript:;"><%= data.summary  %></a>
+          <a href="/topic/detail?id=<%= data._id %>"><%= data.summary  %></a>
         </p>
         <div class="topic-bottom">
         	<span class="date"><%= data.date  %></span>

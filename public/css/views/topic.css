@@ -74,6 +74,33 @@
     bottom: 0;
     right: 0;
 }
+
+/* 资讯详情 */
+.topic-detail {
+    margin: 48px 0;
+}
+.topic-detail .topic-detail-tit{    
+    margin-bottom: 20px;
+    line-height: 36px;
+    color: #666;
+    font-size: 2.4rem;
+    font-weight: normal;
+}
+.topic-detail .topic-detail-label{
+    margin-bottom: 20px;
+}
+.topic-detail .topic-detail-label .date{
+    color: #999;
+}
+.topic-detail-content{
+    min-height: 500px;
+    color: #3d464d;
+    line-height: 30px;
+    font-size: 16px;
+}
+.topic-detail-content img{
+    max-width: 100%;
+}
 .label-tit{
     margin-bottom: 16px;
     color: #888;

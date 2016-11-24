@@ -9,6 +9,30 @@ exports.index=function(req,res){
 	});
 }
 
+exports.detail=function(req,res){
+
+	var id = req.query.id;
+	if (id) {
+		dbService.findDataById(article.tableName, article.schema, id, "", '', function(data){
+			console.log(data)
+			if (data.status == 0) {
+				res.render("topic/topic-detail",{
+					title:data.data.title,
+					data:data.data,
+					name: req.session.user.user
+				});
+			}else{
+				res.redirect("/");
+			}
+			
+		})
+	}else{
+		res.redirect("/");
+		
+	}
+	
+}
+
 exports.addTopic=function(req,res){
 	
 

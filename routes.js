@@ -7,6 +7,7 @@ var controls = require('./controllers');
 //页面渲染
 router.get('/', isLogin, controls.topic.index);
 router.get('/topic/add', isLogin, controls.topic.addTopic);
+router.get('/topic/detail', isLogin, controls.topic.detail);
 router.get('/login', controls.account.login);
 router.get('/register', controls.account.register);
 
