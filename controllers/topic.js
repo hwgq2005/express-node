@@ -33,7 +33,7 @@ exports.detail=function(req,res){
 	
 }
 
-exports.addTopic=function(req,res){
+exports.updateSave=function(req,res){
 	
 
 	var id = req.query.id;
@@ -41,7 +41,7 @@ exports.addTopic=function(req,res){
 		dbService.findDataById(article.tableName, article.schema, id, "", '', function(data){
 			console.log(data)
 			if (data.status == 0) {
-				res.render("topic/addTopic",{
+				res.render("topic/topic-add",{
 					title:"编辑资讯",
 					data:data.data,
 					name: req.session.user.user
@@ -52,7 +52,7 @@ exports.addTopic=function(req,res){
 			
 		})
 	}else{
-		res.render("topic/addTopic",{
+		res.render("topic/topic-add",{
 			title:"新增资讯",
 			data:'',
 			name: req.session.user.user
@@ -73,7 +73,7 @@ exports.list=function(req,res){
 }
 
 // 添加文章
-exports.add = function(req, res) {
+exports.save = function(req, res) {
 
 	var values    = req.body;
 	if (values.title != '' && values.content != '') {

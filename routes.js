@@ -6,7 +6,7 @@ var controls = require('./controllers');
 
 //页面渲染
 router.get('/', isLogin, controls.topic.index);
-router.get('/topic/add', isLogin, controls.topic.addTopic);
+router.get('/topic/updateSave', isLogin, controls.topic.updateSave);
 router.get('/topic/detail', isLogin, controls.topic.detail);
 router.get('/login', controls.account.login);
 router.get('/register', controls.account.register);
@@ -24,7 +24,7 @@ router.get("/account/logOut",controls.account.loginOut);
 
 //发布文章
 router.get('/topic/list',controls.topic.list);
-router.post('/topic/add',controls.topic.add);
+router.post('/topic/save',controls.topic.save);
 router.post('/topic/update/:id',controls.topic.update);
 router.post('/topic/delete/:id',controls.topic.delete);
 

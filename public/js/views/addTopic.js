@@ -35,7 +35,7 @@ define([
 			if ($topicForm.valid()) {
 				$.ajax({
 				  method: "POST",
-				  url: "/topic/add",
+				  url: "/topic/save",
 				  data: $topicForm.serialize() + '&content='+ue.getContent()
 				}).done(function( data ) {
 					
