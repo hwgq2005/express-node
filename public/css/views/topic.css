@@ -38,37 +38,8 @@
     margin-bottom: 24px;
     min-height: 500px;
 }
-.topic-list .topic-content{
-    padding: 24px 0;
-    border-bottom: 1px solid #efefef;
-}
-.topic-list .topic-content .topic-tit{
-    margin-bottom: 20px;
-    color: #666;
-    font-size: 1.6rem;
-    font-weight: normal;
-}
-.topic-list .topic-content .topic-tit a{
-    color: #666;
-}
-.topic-list .topic-content .topic-tit a:hover{
-    color:#6CF;
-}
-.topic-list .topic-content .topic-sum{
-    margin-bottom: 20px;
-    line-height: 20px;
-    color: #999;
-    font-size: 1.4rem;
-}
-.topic-list .topic-content .topic-sum a,
-.topic-list .topic-content .topic-bottom{
-    color: #999;
-}  
 
-.topic-list .topic-content .topic-bottom{
-    position: relative;
-}
-.topic-list .topic-content .topic-bottom .btns-group{
+.topic-list .btns-group{
     position: absolute;
     bottom: 0;
     right: 0;

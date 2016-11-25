@@ -1,19 +1,26 @@
 <% if(data.length > 0) {%>
   <% data.forEach(function(data,index){ %>
-      <li class="topic-content">
-        <h2 class="topic-tit"><a href="/topic/detail?id=<%= data._id %>"><%= data.title  %></a></h2>
-        <p class="topic-sum">
-          <a href="/topic/detail?id=<%= data._id %>"><%= data.summary  %></a>
-        </p>
-        <div class="topic-bottom">
-        	<span class="date"><%= data.date  %></span>
+   
+      <li class="table-view-cell">
+          <div class="media-object pull-left">
+            <a href="/topic/detail?id=<%= data._id %>" class="media-view" style="background-image:url(https://pic.36krcnd.com/avatar/201611/24045232/q3s05b2wie4i08f0.jpg!feature)"></a>
+          </div>
+          <div class="media-body">
+            <div class="media-tit">
+                <a href="/topic/detail?id=<%= data._id %>" ><%= data.title  %></a>
+            </div>
+            <div class="media-sum"> <a href="/topic/detail?id=<%= data._id %>"><%= data.summary  %></a> </div>
+            <div class="media-footer">
+                <span class="media-time"><%= data.date  %></span>
 
-        	<div class="btns-group">
-	        	<a href="topic/updateSave?id=<%= data._id %>" class="btn btn-mini btn-primary" >编辑</a>
-	        	<a href="javascript:;" class="btn btn-mini btn-danger" data-id="<%= data._id %>" data-action="del">删除</a>
-        	</div>
-        </div>
+                <div class="btns-group">
+                  <a href="topic/updateSave?id=<%= data._id %>" class="btn btn-mini btn-primary" >编辑</a>
+                  <a href="javascript:;" class="btn btn-mini btn-danger" data-id="<%= data._id %>" data-action="del">删除</a>
+                </div>
+            </div>
+          </div>
       </li>
+     
   <% }) %>
 <% }else{%>
 
