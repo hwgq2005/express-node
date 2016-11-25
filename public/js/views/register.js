@@ -12,7 +12,8 @@ define([
 	'use strict';
 
 	
-	var $loginBtn = $("#login-btn");
+	var $loginBtn = $("#login-btn"),
+		$loginForm= $('#login-form');
 		
 	var login={
 
@@ -27,30 +28,41 @@ define([
 		//事件绑定
 		bindEvent:function(){
 
-
+			// 注册
 			$loginBtn.click(function(event) {
-				if ($('#login-form').valid()) {
-					$.ajax({
-					  method: "POST",
-					  url: "/account/register",
-					  data: $('#login-form').serialize(),
-					  dataType: "json"
-					}).done(function(data ) {
- 						if (data.status == 0 ) {
- 							window.location = "index.html";
- 						}
-					});
-					// console.log($('#login-form').serialize())
-				}
+				login.sub();
 			});
 
+			// 回车注册
+			$('#reply-Pass').on('keypress',  function(event) {
+				if (!e) var e = window.event; 
+				if (e.keyCode == 13) {
+					login.sub();
+				}
+			});
+		},
 
+
+		// 注册
+		sub:function(){
+			if ($loginForm.valid()) {
+				$.ajax({
+				  method: "POST",
+				  url: "/account/register",
+				  data: $('#login-form').serialize(),
+				  dataType: "json"
+				}).done(function(data ) {
+						if (data.status == 0 ) {
+							window.location = "index.html";
+						}
+				});
+			}
 		},
 		
 		//表单验证
 		valid:function(){
 			
-			$("#login-form").validate({
+			$loginForm.validate({
 				rules: {
 					user: "required",
 					password: {
@@ -59,7 +71,7 @@ define([
 					},
 					replyPassword: {
 						required: true,
-						equalTo: '#password',
+						equalTo: '#pass',
 						minlength :6
 					}
 				},
