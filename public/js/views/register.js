@@ -56,11 +56,20 @@ define([
 					password: {
 						required: true,
 						minlength: 6
+					},
+					replyPassword: {
+						required: true,
+						equalTo: '#password',
+						minlength :6
 					}
 				},
 				messages: {
 					user: "不能为空",
-					password: '密码至少6位数以上'
+					password: '密码至少6位数以上',
+					replyPassword: {
+						required: '请再次输入密码',
+						equalTo: '两次密码输入不一致'
+					}
 				}
 			});
 		}
