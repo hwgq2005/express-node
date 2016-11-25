@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<base href="/">
+	<title><%= title %></title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<%- include('../common/style'); %>
+ 	<link rel="stylesheet" href="css/views/topic.css">
+  </head>
+  <body >
+   
+   	<%- include('../common/header', {page: 'project'}); %>
+  
+	<div class="topic-bg" style="background-image:url(images/login-bg.jpg)"></div>
+	
+	<div class="container">
+		<div class="topic">
+	    	<div class="topic-module clearfix" >
+	    		<div class="module-tit">
+	    			 <h1 >项目列表</h1>
+	    			 <!-- <a href="/topic/updateSave" class="btn btn-primary add-topic">添加资讯</a> -->
+	    		</div>
+
+	    		<ul class="table-view table-view-one">
+					<li class="table-view-cell table-view-hover">
+					    <div class="media-object pull-left">
+					     	<a href="#" ><img src="images/login-bg.jpg" alt="" width="48px" height="48px" class="btn-radius-4" /> </a>
+					    </div>
+					    <div class="media-body">
+					      <div class="media-tit">
+					      		迷笛音乐0
+					      </div>
+					      <div class="media-sum"> 生活很无趣幸好有迷笛生活很无趣幸</div>
+					    </div>
+					</li>
+					<li class="table-view-cell table-view-hover">
+					    <div class="media-object pull-left">
+					     	<a href="#" ><img src="images/login-bg.jpg" alt="" width="48px" height="48px" class="btn-radius-4" />  </a>
+					    </div>
+					    <div class="media-body">
+					      <div class="media-tit">
+					      		迷笛音乐1
+					      </div>
+					      <div class="media-sum"> 生活很无趣幸好有迷笛生活很无趣幸</div>
+					    </div>
+					</li>
+					<li class="table-view-cell table-view-hover">
+					    <div class="media-object pull-left">
+					     	<a href="#" ><img src="images/login-bg.jpg" alt="" width="48px" height="48px" class="btn-radius-4" />  </a>
+					    </div>
+					    <div class="media-body">
+					      <div class="media-tit">
+					      		迷笛音乐2
+					      </div>
+					      <div class="media-sum"> 生活很无趣幸好有迷笛生活很无趣幸</div>
+					    </div>
+					</li>
+				</ul>
+	           
+				<div id="page" class="page pull-right "></div>
+	    	</div>
+		</div>
+	</div>
+
+    <%- include('../common/footer'); %>
+
+	<script src="js/require.min.js"></script>
+	<script src="js/config.js"></script>
+	<script>
+
+	    // require(['views/project'],function(topic){
+	    // 	topic.init();
+	    // });
+	</script>
+  </body>
+</html>

@@ -8,6 +8,7 @@ var controls = require('./controllers');
 router.get('/', isLogin, controls.topic.index);
 router.get('/topic/updateSave', isLogin, controls.topic.updateSave);
 router.get('/topic/detail', isLogin, controls.topic.detail);
+router.get('/project', isLogin, controls.project.index);
 router.get('/login', controls.account.login);
 router.get('/register', controls.account.register);
 
