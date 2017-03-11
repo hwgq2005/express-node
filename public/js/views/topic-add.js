@@ -24,7 +24,7 @@ define([
    		topic.bindEvent();
    		topic.valid();
 
-		ue = UE.getEditor(myeditor,common.UEConfig);
+		ue = UE.getEditor('myeditor',common.UEConfig);
 		
 	};
 
@@ -48,7 +48,7 @@ define([
 
 		var id = common.getQueryString('id');
 		$('#edit-topic').click(function(event) {
-			console.log($topicForm.serialize())
+			console.log(ue.getContent())
 			if ($topicForm.valid()) {
 				$.ajax({
 				  method: "POST",

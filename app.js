@@ -6,7 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 // var methodOverride = require('method-override')
 var session = require('express-session');
-
+var ueditor = require("ueditor");
+var controls = require('./controllers');
+var ueditorControls = controls.ueditor;
 var routes = require('./routes');
 
 var app = express();
@@ -34,7 +36,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
-
+app.use("/ue/upload", ueditor(path.join(__dirname, 'public'), ueditorControls.post));
 // app.use(function(req,res,next){ 
 //     res.locals.user = req.session.user;
 //     req.signedCookies.token = 'token';

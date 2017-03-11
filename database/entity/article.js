@@ -11,7 +11,7 @@ var schema = new mongoose.Schema({
     summary : {type : String},
 
     //内容
-    content : {type:String, required:true},
+    content : {type:String, required:true,max:10000},
 
     //创建时间
     date: { type: Date, default: Date.now}
