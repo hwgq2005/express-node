@@ -10,8 +10,7 @@ var ueditor = require("ueditor");
 var controls = require('./controllers');
 var ueditorControls = controls.ueditor;
 var routes = require('./routes');
-var oauth2lib = require('oauth20-provider');
-var oauth2 = new oauth2lib({log: {level: 2}});
+
 var app = express();
 
 
@@ -40,26 +39,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use("/ue/upload", ueditor(path.join(__dirname, 'public'), ueditorControls.post));
 
-
-//认证服务
-app.use(oauth2.inject());
-app.post('/token', oauth2.controller.token);
-app.get('/authorization', isAuthorized, oauth2.controller.authorization, function(req, res) {
-    // Render our decision page
-    // Look into ./test/server for further information
-    res.render('authorization', {layout: false});
-});
-app.post('/authorization', isAuthorized, oauth2.controller.authorization);
-
-function isAuthorized(req, res, next) {
-    if (req.session.authorized) next();
-    else {
-      // res.redirect("/login");
-        var params = req.query;
-        params.backUrl = req.path;
-        res.redirect('/login?' + query.stringify(params));
-    }
-};
 // app.use(function(req,res,next){ 
 //     res.locals.user = req.session.user;
 //     req.signedCookies.token = 'token';

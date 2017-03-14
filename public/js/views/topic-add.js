@@ -86,7 +86,15 @@ define([
 			}
 		});
 	}
-
+	// $.ajax({
+	//   method: "POST",
+	//   url: "/token",
+	//   headers: {
+ //            'Authorization': 'base6411'
+ //       }
+	// }).done(function( data ) {
+	//    console.log(data)
+	// });
 	return {
 		init:topic.init
 	}
