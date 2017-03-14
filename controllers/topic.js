@@ -89,6 +89,7 @@ exports.update = function(req, res) {
 
 	var id = req.params.id;
 	var values = req.body;
+	
 	if (values.title != '' && values.content != '') {
 		dbService.updateData(article.tableName,article.schema,{_id:id}, values,{}, function(data){
 			res.json(data); 

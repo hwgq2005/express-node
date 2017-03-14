@@ -8,7 +8,7 @@
 define([
 	'common',
 	'baidueditor', 
-	'zeroclipboard', 
+	'ZeroClipboard', 
 	'bdlang',
 	'messageZH'
 ], function(common,UE, zcl) {
@@ -32,11 +32,16 @@ define([
 	topic.bindEvent=function(){
 
 		$('#login-btn').click(function(event) {
+			var params = {
+				title : $('#title').val(),
+				summary : $('#summary').val(),
+				content : ue.getContent()
+			}
 			if ($topicForm.valid()) {
 				$.ajax({
 				  method: "POST",
 				  url: "/topic/save",
-				  data: $topicForm.serialize() + '&content='+ue.getContent()
+				  data: params
 				}).done(function( data ) {
 					
 				   	if (data.status == 0 ) {
@@ -48,14 +53,18 @@ define([
 
 		var id = common.getQueryString('id');
 		$('#edit-topic').click(function(event) {
-			console.log(ue.getContent())
+			
+			var params = {
+				title : $('#title').val(),
+				summary : $('#summary').val(),
+				content : ue.getContent()
+			}
 			if ($topicForm.valid()) {
 				$.ajax({
 				  method: "POST",
 				  url: "/topic/update/"+id,
-				  data: $topicForm.serialize() + '&content='+ue.getContent()
+				  data: params
 				}).done(function( data ) {
-					
 				   	if (data.status == 0 ) {
 						window.location = "index.html";
 					}
