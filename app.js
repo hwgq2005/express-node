@@ -24,6 +24,7 @@ app.use(session({
     secure:false
 }));
 
+console.log(new Date().toLocaleString(),22222);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

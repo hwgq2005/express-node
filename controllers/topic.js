@@ -66,7 +66,8 @@ exports.updateSave=function(req,res){
 // 列表
 exports.list=function(req,res){
 	
-	dbService.findDatas(article.tableName, article.schema, '', "","", function(data){
+	console.log(article.tableName,1121212);
+	dbService.findDatas(article.tableName, article.schema, {}, "","", function(data){
 	   res.json(data); 
 	} );
 
