@@ -13,7 +13,6 @@ router.get('/login', controls.account.login);
 router.get('/register', controls.account.register);
 
 // api
-
 // 登录
 router.post("/account/loginIn",controls.account.loginIn);
 
@@ -29,6 +28,8 @@ router.post('/topic/save',controls.topic.save);
 router.post('/topic/update/:id',controls.topic.update);
 router.post('/topic/delete/:id',controls.topic.delete);
 
+// 支付回调
+router.get('/notify_url',controls.topic.notify);
 // 判断是否登录
 function isLogin(req,res,next){
 	if (!req.session.user) {
